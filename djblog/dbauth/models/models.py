@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager, PermissionsMixin
 from django.utils.translation import gettext_lazy as _
+from dbpost.models.core_models import *
 
 
 
@@ -35,3 +36,12 @@ class User(AbstractUser, PermissionsMixin) :
     
     def __str__(self):
         return self.email
+
+
+class UserProfile(BaseStampStampModel):
+    phone = models.CharField(max_length = 14, blank=True)
+    address = models.CharField(max_length = 144, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.user.email

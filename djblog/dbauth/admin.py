@@ -2,8 +2,10 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin 
 from django.contrib.auth import get_user_model
 from dbauth.forms.forms import CustomUserCreationForm, CustomUserChangeForm
+from dbauth.models.models import UserProfile
 
 User = get_user_model()
+admin.site.register(UserProfile)
 
 @admin.register(User)
 class CustomUserAdmin(UserAdmin) :
