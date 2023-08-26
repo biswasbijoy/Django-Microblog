@@ -1,0 +1,9 @@
+{% extends 'dbcore/base.html' %}
+{% block title%} Post Details {% endblock %}
+{% block content%} 
+
+    <h1>{{post.title}}</h1>
+    <p>{{post.description}}</p>
+    <p>{{post.published}}</p>
+
+{% endblock %}
