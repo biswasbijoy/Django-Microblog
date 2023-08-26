@@ -20,8 +20,7 @@ from dbpost import urls as dbpost_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('post/', include(dbpost_urls)),
-    path('', include(dbpost_urls, namespace='dbpost')),
+    path('', include(dbpost_urls, namespace="dbpost")),
     
     
 ]

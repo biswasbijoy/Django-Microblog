@@ -1,8 +1,7 @@
 {% extends 'dbcore/base.html' %}
 {% block title%} Post Create {% endblock %}
 {% block content%} 
-
-    <form mehtod="POST">
+    <form method="post">
         {% csrf_token %}
         {{ form.title }}<br>
         {{ form.user_id }}<br>
