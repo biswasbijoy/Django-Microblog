@@ -23,7 +23,7 @@ def post_create_view(request, *args, **kwargs) :
         if form.is_valid() :
             cl_data = form.cleaned_data
             post_obj = Post.objects.create(title=cl_data["title"], user_id=cl_data["user_id"])
-            # return redirect("dbpost:post_details", post_obj.id)
+            return redirect("dbpost:post_details", post_obj.id)
             
     return render(request, "dbpost/post_create.html", {"form": form})
 
@@ -31,11 +31,11 @@ def post_create_view(request, *args, **kwargs) :
 
 
 # def post_create_view(request, *args, **kwargs) :
-    form  = PostCreateForm()
-    if request.method == "POST" :
-        data = request.POST
-        form = PostCreateForm(data=data)
-        if form.is_valid() :
-            form.save()
-            return redirect("dbpost:post_details", form.instance.id)
-    return render(request, "dbpost/post_create.html", {"form": form})
+    # form  = PostCreateForm()
+    # if request.method == "POST" :
+    #     data = request.POST
+    #     form = PostCreateForm(data=data)
+    #     if form.is_valid() :
+    #         form.save()
+    #         return redirect("dbpost:post_details", form.instance.id)
+    # return render(request, "dbpost/post_create.html", {"form": form})
