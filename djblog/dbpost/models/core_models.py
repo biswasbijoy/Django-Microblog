@@ -3,17 +3,15 @@ from model_utils import FieldTracker
 from django.db import IntegrityError
 
 
-class BaseStampStampModel(TimeStampedModel) :
+class BaseStampStampModel(TimeStampedModel):
     tracker = FieldTracker()
-    
-    class Meta :
+
+    class Meta:
         abstract = True
-    
-    
-    def delete(self, **kwargs) :
-        try :
+
+    def delete(self, **kwargs):
+        try:
             super().delete(**kwargs)
-            
+
         except IntegrityError:
             raise "Integrity Error"
-    
